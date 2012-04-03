@@ -1,0 +1,386 @@
+body {
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, sans-serif;
+  font-size: 62.5%;
+  background-color:#AAA;
+}
+#canvas {
+  position: absolute;
+  top:1%; left: 35%; bottom: 20%; right: 1%;
+  border: 1px solid #999;
+  background-color: #FFF;
+  box-shadow:-7px 0 10px rgba(190,190,190,0.5), inset 0 0 10px rgba(0,0,0,0.1);
+  -moz-box-shadow:-7px 0 10px rgba(150,150,150,0.5), inset 0 0 20px rgba(0,0,0,0.1);
+  -webkit-box-shadow:-7px 0 10px rgba(150,150,150,0.5), inset 0 0 20px rgba(0,0,0,0.1);
+  -o-box-shadow:-7px 0 10px rgba(150,150,150,0.5), inset 0 0 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.editable {
+  width: 24em;
+  height: 16em;
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  z-index: 10;
+  
+  /* IE */
+  behavior: url('/PIE.htc');
+}
+
+.editable.selected {
+
+}
+
+#editor {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 66%;
+  z-index: 2;
+    
+  overflow-y: scroll;
+  color: #555;
+  background-color:#AAA;
+  text-shadow:1px 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow:inset 0 0 40px rgba(100,100,100,0.4);
+  -moz-box-shadow:inset 0 0 40px rgba(100,100,100,0.4);
+  -webkit-box-shadow:inset 0 0 40px rgba(100,100,100,0.4);
+  -o-box-shadow:inset 0 0 40px rgba(100,100,100,0.4);
+  
+}
+
+#css, #ready {
+  position: absolute;
+  top: 80%; left: 62%; bottom: 0%; right: 1%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  text-align: left;
+  z-index: 2;
+  border: 1px solid #999;
+  background-color: #FFF;
+  font-family: monospace;
+  font-size: 12px;
+  padding: 1em;
+  overflow: scroll;
+  color: #555;
+  background-color:#AAA;
+  text-shadow:1px 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow:inset 0 0 40px rgba(100,100,100,0.4);
+  -moz-box-shadow:inset 0 0 40px rgba(100,100,100,0.4);
+  -webkit-box-shadow:inset 0 0 40px rgba(100,100,100,0.4);
+  -o-box-shadow:inset 0 0 40px rgba(100,100,100,0.4);
+}
+
+#ready {
+    font-family: sans-serif;
+    left: 35%;
+    right: 38%;
+    overflow: hidden;
+}
+
+label, input, select, button {
+  vertical-align: middle;
+  border: none;
+}
+label {
+  display:inline-block;
+  white-space:nowrap;
+  width:13em;
+  height:2.4em;
+  margin-bottom:1px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+label.double {
+    width: 26em;
+}
+
+label.triple {
+    display: block;
+    height: auto;
+}
+    label.triple .label {
+        vertical-align: top;
+    }
+    
+.label {
+   color: #666;
+   text-shadow: 1px 1px 0 rgba(255,255,255,0.3);
+   -moz-user-select: none;
+   -webkit-user-select: none;
+   -o-user-select: none;
+}
+
+#editor>.label {
+float: right;
+}
+
+.editor .label,
+.editor .label_after {
+  text-align:right;
+  display:inline-block;
+  width:5em;
+  margin-right:.3em;
+  line-height:2.4em;
+}
+
+.editor .label_after {
+  text-align:left;
+  margin-left:.3em;
+  margin-right:0;
+  width: auto;
+}
+
+input[type=number] {
+  width: 2em;
+  text-align:right;
+  padding-right:1px;
+  border:1px solid #DDD;
+}
+input[type=range] {
+  width: 5em;
+}
+input[type=checkbox] {
+  margin-left: 2.7em;
+}
+
+textarea {
+border: none;
+width: 29em;
+height: 4em;
+font-size: 1.4em;
+}
+
+.ui-widget.range {
+    display:inline-block;
+    height:1em;
+    width: 7em;
+    font-size:.8em;
+    position:relative;
+    top:.3em;
+    margin:0 0.3em;
+}
+input.picker {
+  width: 5em;
+  padding-left:1px;
+}
+.editor {
+  color: #666;
+  text-shadow: 1px 1px 0 rgba(255,255,255,0.3);
+  margin:0;
+  line-height:2em;
+  position: relative;
+  background-color: #BBB;
+  
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.editor:last-child {
+    padding-bottom:.6em;
+}
+
+button {
+     
+padding: .3em .6em;
+font-size:9px;
+letter-spacing:0;
+*padding: 0;
+border: 1px solid #000;
+border: 1px solid rgba(0,0,0,0.4);
+
+border-radius: 5px;
+-moz-border-radius: 5px;
+-webkit-border-radius: 5px;
+-khtml-border-radius: 5px;
+
+background-color: #e1e1e1;
+
+box-shadow: 0 0 0 transparent, inset 0 1px rgba(255,255,255, 0.6), inset 0 13px #ebebeb, 0 0 0 transparent, inset 0 -15px 0 #e1e1e1;
+-o-box-shadow: 0 0 0 transparent, inset 0 1px rgba(255,255,255, 0.6), inset 0 13px #ebebeb, 0 0 0 transparent, inset 0 -15px 0 #e1e1e1;
+-webkit-box-shadow: 0 0 0 transparent, inset 0 1px rgba(255,255,255, 0.6), inset 0 13px #ebebeb, 0 0 0 transparent, inset 0 -15px 0 #e1e1e1;
+-moz-box-shadow: 0 0 0 transparent, inset 0 1px rgba(255,255,255, 0.6), inset 0 13px #ebebeb, 0 0 0 transparent, inset 0 -15px 0 #e1e1e1;
+
+color: #555;
+font-weight: bold;
+text-shadow: 1px 1px 0 rgba(255,255,255, 0.6);
+    
+}
+
+button + button {
+    margin-right: .3em;
+}
+
+button:hover {
+  
+color: #333;
+
+background-color: #ebebeb;
+
+box-shadow: 0 0 0 transparent, inset 0 1px rgba(255,255,255, 0.6), inset 0 13px #eee, 0 0 0 transparent, inset 0 -15px 0 #e1e1e1;
+-o-box-shadow: 0 0 0 transparent, inset 0 1px rgba(255,255,255, 0.6), inset 0 13px #eee, 0 0 0 transparent, inset 0 -15px 0 #e1e1e1;
+-webkit-box-shadow: 0 0 0 transparent, inset 0 1px rgba(255,255,255, 0.6), inset 0 13px #eee, 0 0 0 transparent, inset 0 -15px 0 #e1e1e1;
+-moz-box-shadow: 0 0 0 transparent, inset 0 1px rgba(255,255,255, 0.6), inset 0 13px #eee, 0 0 0 transparent, inset 0 -15px 0 #e1e1e1;
+}
+
+button[disabled] {
+    color:#999;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+h1 {
+    background-image:url('../img/csspainter.png');
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    margin:0;
+    height: 34px;
+    width: 110px;
+    z-index: 2;
+}
+
+h1 a {
+    display: block;
+    text-indent:-9999em;
+    overflow:hidden;
+}
+
+h2 {
+    font-weight: normal;
+}
+
+h2.label {
+    margin: 0;
+    font-size: 1.4em;
+}
+
+.palette .hd {
+    padding: .3em .6em;
+    background-color: #BBB;
+    box-shadow: inset 0 10px 30px rgba(255, 255, 255, 1);
+    -moz-box-shadow: inset 0 10px 30px rgba(255, 255, 255, 1);
+    -webkit-box-shadow: inset 0 10px 30px rgba(255, 255, 255, 1);
+    -o-box-shadow: inset 0 10px 30px rgba(255, 255, 255, 1);
+    overflow: hidden;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.palette .hd h2 {
+    float: left;
+    line-height:1.4em;
+}
+
+.palette .hd button {
+    float: right;
+}
+
+.palette .hd label {
+    width: auto;
+    line-height: 2em;
+    float: right;
+    height: 2em;
+    margin: 0 0 0 .3em;
+}
+
+    .palette .hd label input[type=checkbox] {
+        margin:0;
+    }
+    
+.ui-draggable:hover {
+    cursor: move;
+}
+
+ul, li {
+list-style-type: none;
+margin: 0;
+padding: 0;
+}
+
+.examples li {
+display: inline-block;
+background-color: #BBB;
+border: 1px solid #999;
+text-align: center;
+vertical-align: middle;
+margin: 1em;
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  -o-box-shadow: 0 0 10px rgba(0,0,0,0.2);
+
+  -moz-border-radius: 3px;
+
+}
+
+a {
+    text-decoration: none;
+    color: #555;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.examples li a {
+    padding: 1em;
+    width: 4em;
+    display: block;
+    height: 2em;
+}
+
+.palette {
+    height: auto;
+}
+
+.font_family {
+    width: 20em;
+    font-size: 1em;
+}
+
+.nodisplay {
+  display: none;
+}
+
+
+.angle_picker {
+    width: 39px;
+    height: 39px;
+    display: inline-block;
+    border-radius: 20px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 20px;
+    background-color: #BBB;
+    position: relative;
+    border: 1px solid #BBB;
+    box-shadow: inset 2px 2px 0 rgba(0, 0, 0, .3), inset -1px 0 0 rgba(255, 255, 255, .5);
+    -moz-box-shadow: inset 2px 2px 0 rgba(0, 0, 0, .3), inset -1px 0 0 rgba(255, 255, 255, .5);
+    -o-box-shadow: inset 2px 2px 0 rgba(0, 0, 0, .3), inset -1px 0 0 rgba(255, 255, 255, .5);
+    -webkit-box-shadow: 2px 2px 0 rgba(0, 0, 0, .3), -1px 0 0 rgba(255, 255, 255, .5);
+    cursor: default;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    vertical-align: bottom;
+}
+
+.angle_picker:hover {
+    border: 1px solid rgba(255,255,255,.1)
+}
+
+    .angle_picker .rotate {
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+    }
+    
+    .angle_picker .marker {
+        width: 7px; height:7px;
+        background-color: #999;
+        border: 1px solid rgba(255, 255, 255, .5);
+        position: absolute;
+        top: 3px; bottom: 50%;
+        left: 16px;
+        border-radius: 4px;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 4px;
+        cursor: default;
+    }

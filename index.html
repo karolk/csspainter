@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="css/editor.css" media="all" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/themes/base/jquery-ui.css" type="text/css" />
+</head>
+<body>
+  
+  <h1><a class="js_action" href="#intro">CSS painter</a></h1>
+  
+  <div id="intro" class="nodisplay">
+    <h2>Welcome to CSSPainter.</h2>
+    <p>It has an ambitious goal of bringing web creation stuff back to the web. Here's our promise:</p>
+        <ul>
+            <li>All CSS goodness done visually</li>
+            <li>Save your CSS sprites and share with others</li>
+            <li>Maximum compatibility.</li>
+        </ul>
+    <p>Why don't you have a look at some examples we prepared?</p>
+    <p>Stay tuned and <a href="http://twitter.com/csspainter">follow us on twitter</a></p>
+    <p>This is very fresh and we will get so much better!</p>
+  </div>
+  
+  <div id="canvas">
+    <div class="editable selected">
+        <span></span>
+    </div>
+  </div>
+
+  <div id="editor">
+      
+      <div class="palette box-shadow">
+        <div class="hd">
+            <h2 class="label">box-shadow</h2>
+            <label><input type="checkbox" name="toggle_enable" class="toggle_enable" checked="checked"> enabled</label>
+            <button class="del">remove</button>
+            <button class="add">add</button>
+        </div>
+        <div class="bd">
+        </div>
+      </div>
+      <div class="palette text">
+        <div class="hd">
+            <h2 class="label">text</h2>
+            <label><input type="checkbox" name="toggle_enable" class="toggle_enable" checked="checked"> enabled</label>
+        </div>
+        <div class="bd">
+        </div>
+      </div>
+      <div class="palette text-shadow">
+        <div class="hd">
+            <h2 class="label">text-shadow</h2>
+            <label><input type="checkbox" name="toggle_enable" class="toggle_enable" checked="checked"> enabled</label>
+            <button class="del">remove</button>
+            <button class="add">add</button>
+        </div>
+        <div class="bd">
+        </div>
+      </div>
+      <div class="palette border-radius">
+        <div class="hd">
+            <h2 class="label">border-radius</h2>
+            <label><input type="checkbox" name="toggle_enable" class="toggle_enable" checked="checked"> enabled</label>
+        </div>
+        <div class="bd">
+        </div>
+      </div>
+      <div class="palette size">
+        <div class="hd">
+            <h2 class="label">size</h2>
+            <label><input type="checkbox" name="toggle_enable" class="toggle_enable" checked="checked"> enabled</label>
+        </div>
+        <div class="bd">
+        </div>
+      </div>
+      <div class="palette position">
+        <div class="hd">
+            <h2 class="label">position</h2>
+            <label><input type="checkbox" name="toggle_enable" class="toggle_enable" checked="checked"> enabled</label>
+        </div>
+        <div class="bd">
+        </div>
+      </div>
+      <div class="palette transform">
+        <div class="hd">
+            <h2 class="label">transform</h2>
+            <label><input type="checkbox" name="toggle_enable" class="toggle_enable" checked="checked"> enabled</label>
+        </div>
+        <div class="bd">
+        </div>
+      </div>
+      
+  </div>
+
+  <div id="css">
+
+  </div>
+  
+  <div id="ready">
+    <ul class="examples">
+        <li><a href="#pink_ball">Pink ball</a></li>
+        <li><a href="#purple_and_blue">Purple and blue</a></li>
+        <li><a href="#canvas">Canvas</a></li>
+    </ul>
+  </div>
+  
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.js"></script>
+<script src="js/jscolor/jscolor.js" type="text/javascript"></script>
+<script src="js/editor.js" type="text/javascript"></script>
+</body>
+</html>
+

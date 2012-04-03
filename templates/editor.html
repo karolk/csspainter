@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html><head></head><body><div id="root">
+    <form class="box-shadow editor">
+        <label><input name="inset" type="checkbox"><span class="label_after">inside</span></label>
+        <label><span class="label">offset x</span><input name="offset_x" type="range" class="range_input" value="0" min="-300" max="300">px</label>
+        <label><span class="label">offset y</span><input name="offset_y" type="range" class="range_input" value="0" min="-300" max="300">px</label>
+        <label><span class="label">blur</span><input name="blur" type="range" class="range_input" value="80" min="0" max="300">px</label>
+        <label><span class="label">rgb color</span> #<input name="rgb" class="picker" type="text"></label>
+        <label><span class="label">alpha</span><input name="alpha" type="range" class="range_input" min="0" max="1" step="0.01"></label>
+    </form>
+    <form class="text-shadow editor">
+        <label><span class="label">offset x</span><input name="offset_x" type="range" class="range_input" value="1" min="-300" max="300">px</label>
+        <label><span class="label">offset y</span><input name="offset_y" type="range" class="range_input" value="1" min="-300" max="300">px</label>
+        <label><span class="label">blur</span><input name="blur" type="range" class="range_input" value="3" min="0" max="300">px</label>
+        <label><span class="label">rgb color</span> #<input name="rgb" class="picker" type="text"></label>
+        <label><span class="label">alpha</span><input name="alpha" type="range" class="range_input" min="0" max="1" step="0.01"></label>
+    </form>
+    <form class="text editor">
+        <label><span class="label">size</span><input name="font-size" type="range" class="range_input" value="16" min="1" max="150">px</label>
+        <label class="double"><span class="label">font-family</span>
+               <select class="font_family" name="font-family">
+                <option>"Segoe UI", "Bitstream Vera Sans", "Trebuchet MS", Verdana, sans-serif</option>
+                <option>"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, sans-serif</option>
+                <option>"Helvetica Neue", Helvetica, Arial, sans-serif</option>
+               </select>
+        </label>
+        <label><span class="label">text-align</span><input name="text-align" type="range" class="range_input" value="0" min="0" max="2">px</label>
+        <label><span class="label">color</span> #<input name="color" class="picker" type="text"></label>
+        <label class="triple"><span class="label">text</span> <textarea name="text">CSS Painter is ace!</textarea></label>
+    </form>
+    <form class="border-radius editor">
+        <label><span class="label">radius</span><input name="radius" type="range" class="range_input" value="18" min="0" max="300">px</label>
+    </form>
+    <form class="size editor">
+        <label><span class="label">width </span><input name="width" type="range" class="range_input" value="300" min="1" max="600">px</label>
+        <label><span class="label">height </span><input name="height" type="range" class="range_input" value="300" min="1" max="600">px</label>
+    </form>
+    <form class="position editor">
+        <label><span class="label">top </span><input name="top" type="range" class="range_input" value="100" min="0" max="600">px</label>
+        <label><span class="label">left </span><input name="left" type="range" class="range_input" value="100" min="0" max="600">px</label>
+    </form>
+    <form class="transform editor">
+        <span class="label">rotation </span>
+        <div class="angle_picker"><div class="rotate"><div class="marker"></div></div></div>
+        <input name="transform" type="hidden" value="0">
+    </form>
+    <button class="del">remove</button>
+    <button class="add">add</button>
+</div></body></html>
